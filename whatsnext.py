@@ -1,8 +1,15 @@
 #! coding: utf-8
 from parsers import ALL_PARSERS
 
+def short_fmt(concert):
+    return "{}\t{}\t{}".format(
+        concert.datetime.strftime("%d %b"),
+        concert.artist,
+        concert.price)
+
 for parser in ALL_PARSERS:
     p = parser()
 
     for concert in p.get_concerts():
-        print("{}\t{}\t{}\t{}".format(p.__doc__, *concert))
+        print(p.__doc__, short_fmt(concert), sep="\t")
+
