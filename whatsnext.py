@@ -7,9 +7,10 @@ def short_fmt(concert):
         concert.artist,
         concert.price)
 
-for parser in ALL_PARSERS:
-    p = parser()
+if __name__ == "__main__":
+    for parser in ALL_PARSERS:
+        p = parser()
 
-    for concert in p.get_concerts():
-        print(p.__doc__, short_fmt(concert), sep="\t")
+        for concert in p.get_concerts():
+            print(p.__doc__, short_fmt(concert), sep="\t")
 
