@@ -1,8 +1,7 @@
-`
+```
 $pip3 install git+https://github.com/madfriend/whatsnext
-$python
-$from whatsnext.parsers import ALL_PARSERS
-`
+$python -m whatsnext.whatsnext
+```
 
 Example output (22 Dec 2016):
 ```
