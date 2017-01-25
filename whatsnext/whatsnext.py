@@ -1,5 +1,5 @@
 #! coding: utf-8
-from parsers import ALL_PARSERS
+from whatsnext.parsers import ALL_PARSERS
 
 def short_fmt(concert):
     return "{}\t{}\t{}".format(
