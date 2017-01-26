@@ -31,6 +31,6 @@ class ParserCosmonavt(Parser):
             dt = self._parse_date(str(event.find(class_="inline")))
             artist = remove_lbr(event.find(class_="add_title").find("a").text)
             price = self._parse_price(event.find(class_="add_ticket").text)
-
-            yield Concert(artist=artist, datetime=dt, price=price)
+            link = remove_lbr(event.find(class_="add_title").find("a")["href"])
+            yield Concert(artist=artist, datetime=dt, price=price, link=link)
 

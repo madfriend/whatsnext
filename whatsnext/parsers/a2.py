@@ -39,8 +39,10 @@ class ParserA2(Parser):
             try:
                 artist = tds[2].find("a").string.strip()
                 artist = remove_lbr(artist)
+                link = tds[2].find("a")["href"]
             except:
                 artist = "PARSE ERROR"
+                link = None
 
             dt = self._parse_date(tds[0].text)
 
@@ -50,4 +52,5 @@ class ParserA2(Parser):
             except:
                 price = "PARSE ERROR"
 
-            yield Concert(artist=artist, datetime=dt, price=price)
+
+            yield Concert(artist=artist, datetime=dt, price=price, link=link)

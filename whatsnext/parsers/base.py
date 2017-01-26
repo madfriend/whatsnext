@@ -4,7 +4,7 @@ from collections import namedtuple
 import requests
 from bs4 import BeautifulSoup
 
-Concert = namedtuple("Concert", "artist datetime price")
+Concert = namedtuple("Concert", "artist datetime price link")
 
 def remove_lbr(string):
     s = ' '.join(string.strip().splitlines())
