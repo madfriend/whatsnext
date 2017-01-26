@@ -40,6 +40,9 @@ class ParserA2(Parser):
                 artist = tds[2].find("a").string.strip()
                 artist = remove_lbr(artist)
                 link = tds[2].find("a")["href"]
+
+                if not link.startswith(self.url):
+                    link = self.url + "/" + link
             except:
                 artist = "PARSE ERROR"
                 link = None

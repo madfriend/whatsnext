@@ -32,5 +32,7 @@ class ParserCosmonavt(Parser):
             artist = remove_lbr(event.find(class_="add_title").find("a").text)
             price = self._parse_price(event.find(class_="add_ticket").text)
             link = remove_lbr(event.find(class_="add_title").find("a")["href"])
+            if not link.startswith(self.url):
+                link = self.url + "/" + link
             yield Concert(artist=artist, datetime=dt, price=price, link=link)
 
