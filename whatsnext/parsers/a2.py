@@ -36,8 +36,18 @@ class ParserA2(Parser):
         for table_row in event_list.find_all("tr"):
             tds = table_row.find_all("td")
 
-            artist = remove_lbr(tds[2].find("a").string.strip())
+            try:
+                artist = tds[2].find("a").string.strip()
+                artist = remove_lbr(artist)
+            except:
+                artist = "PARSE ERROR"
+
             dt = self._parse_date(tds[0].text)
-            price = self._parse_price(tds[2].find("i").string.strip())
+
+            try:
+                price =tds[2].find("i").string.strip()
+                price = self._parse_price(price)
+            except:
+                price = "PARSE ERROR"
 
             yield Concert(artist=artist, datetime=dt, price=price)
