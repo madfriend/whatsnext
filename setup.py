@@ -4,6 +4,6 @@ packages = find_packages('.')
 
 setup(
   name='whatsnext',
-  version='0.4',
+  version='0.5',
   packages=packages
 )

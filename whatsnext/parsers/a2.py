@@ -17,5 +17,5 @@ class ParserA2(Parser):
         for event in events:
             yield Concert(artist=event["name"],
                 datetime=datetime.fromtimestamp(event["date"]),
-                price=int(float(event["price"])),
+                price=int(float(event["price"] or 0)),
                 link=self.url + event["url"])
